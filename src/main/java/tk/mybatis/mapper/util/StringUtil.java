@@ -6,7 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by liuzh_3nofxnp on 2015/8/26.
+ * Created by sgq0085 on 2015/10/9.
  */
 public class StringUtil {
 
@@ -64,9 +64,9 @@ public class StringUtil {
         for (int i = 0; i < size; i++) {
             c = chars[i];
             if (isUppercaseAlpha(c)) {
-                sb.append('_').append(c);
+                sb.append('_').append(toUpperAscii(c));
             } else {
-                sb.append(toUpperAscii(c));
+                sb.append(c);
             }
         }
         return sb.charAt(0) == '_' ? sb.substring(1) : sb.toString();
@@ -93,7 +93,7 @@ public class StringUtil {
 
     public static char toUpperAscii(char c) {
         if (isUppercaseAlpha(c)) {
-            c -= (char) 0x20;
+            c += (char) 0x20;
         }
         return c;
     }
